@@ -11,15 +11,14 @@ namespace StarGenerator
     {
         static void Main(string[] args)
         {
-            // Random name Generator
             Console.WriteLine("Welcome to the Star System Generator! How many stars would you like to generate?");
             int stars = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine();
             for (int i = 0; i < stars; i++)
             {
                 GenerateStar();
-                // Console.WriteLine("Press Y to generate another system, or any other key to exit.");
             }
+            Console.WriteLine("Press any key to exit.");
             Console.ReadLine();
         }
 
@@ -61,16 +60,16 @@ namespace StarGenerator
                 switch(orbitType)
                 {
                     case 1:
-                        int rockyMoons = rand.Next(0, 5);
+                        int rockyMoons = rand.Next(0, 4);
                         Console.WriteLine(starName + " " + i + " is a rocky world with " + rockyMoons + " moons.");
                         break;
 
                     case 2:
-                        int gasMoons = rand.Next(0, 5);
+                        int gasMoons = rand.Next(0, 73);
                         Console.WriteLine(starName + " " + i + " is a gas giant with " + gasMoons + " moons.");
                         break;
                     case 3:
-                        int dwarfMoons = rand.Next(0, 5);
+                        int dwarfMoons = rand.Next(0, 6);
                         Console.WriteLine(starName + " " + i + " is a dwarf planet with " + dwarfMoons + " moons.");
                         break;
                     case 4:
@@ -84,17 +83,7 @@ namespace StarGenerator
             // To-Do:
             // Compare Middle syllables to make sure they're not re-used
             // Implement opening syllables and ending syllables
-            // Randomly select class
 
-            // Console.WriteLine(starName + " is a class " + starClass + " star.");
-
-            // Generate number of planets
-            // Name planets StarName+I-XV
-
-            // Console.WriteLine(starName + " has " + numPlanets + " planets with the following characteristics:");
-
-            // Assign each planet rocky or gas
-            // Generate number of moons per planet 1-4 rocky, 8-45 gaseous
             // Add diameter and mass to planets?
 
         }
