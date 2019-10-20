@@ -12,20 +12,17 @@ namespace StarGenerator
         static void Main(string[] args)
         {
             // Random name Generator
-            Console.WriteLine("Welcome to the Star System Generator! To generate a star system, press any key.");
-            Console.ReadLine();
-            string letter;
-            do
+            Console.WriteLine("Welcome to the Star System Generator! How many stars would you like to generate?");
+            int stars = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < stars; i++)
             {
-                NameStar();
-                // GeneratePlanets();
-                Console.WriteLine("Press Y to generate another system, or any other key to exit.");
-                letter = Console.ReadLine();
+                GenerateStar();
+                // Console.WriteLine("Press Y to generate another system, or any other key to exit.");
             }
-            while (letter == "Y" || letter == "y");
+            Console.ReadLine();
         }
 
-        static void NameStar()
+        static void GenerateStar()
         {
             Random rand = new Random();
 
@@ -46,7 +43,26 @@ namespace StarGenerator
             int lightYears = rand.Next(4, 102034);
             string lightYearsString = lightYears.ToString("N0");
             Console.WriteLine(starName + " is a class " + starClass + " star, " + lightYearsString + " light years away.");
+            int numOrbits = rand.Next(1, 18);
+            if (numOrbits == 1)
+            {
+                Console.WriteLine("There are " + numOrbits + " planetary object orbiting " + starName + ".");
+            }
+            else
+            {
+                Console.WriteLine("There are " + numOrbits + " planetary objects orbiting " + starName + ".");
+            }
+            Console.WriteLine();
+            // foreach 
         }
+
+
+
+
+
+
+
+        // To-Do:
         // Compare Middle syllables to make sure they're not re-used
         // Implement opening syllables and ending syllables
         // Randomly select class
