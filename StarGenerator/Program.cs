@@ -14,6 +14,7 @@ namespace StarGenerator
             // Random name Generator
             Console.WriteLine("Welcome to the Star System Generator! How many stars would you like to generate?");
             int stars = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
             for (int i = 0; i < stars; i++)
             {
                 GenerateStar();
@@ -34,6 +35,7 @@ namespace StarGenerator
             {
                 int starSyllableIndex = rand.Next(starSyllables.Length);
                 starName += starSyllables[starSyllableIndex];
+                // Sleep time prevents duplicate results due to Random using system clock
                 Thread.Sleep(20);
                 starName = char.ToUpper(starName[0]) + starName.Substring(1);
             }
@@ -53,30 +55,48 @@ namespace StarGenerator
                 Console.WriteLine("There are " + numOrbits + " planetary objects orbiting " + starName + ".");
             }
             Console.WriteLine();
-            // foreach 
+            for (int i = 1; (i < numOrbits + 1); i++)
+            {
+                int orbitType = rand.Next(1, 5);
+                switch(orbitType)
+                {
+                    case 1:
+                        int rockyMoons = rand.Next(0, 5);
+                        Console.WriteLine(starName + " " + i + " is a rocky world with " + rockyMoons + " moons.");
+                        break;
+
+                    case 2:
+                        int gasMoons = rand.Next(0, 5);
+                        Console.WriteLine(starName + " " + i + " is a gas giant with " + gasMoons + " moons.");
+                        break;
+                    case 3:
+                        int dwarfMoons = rand.Next(0, 5);
+                        Console.WriteLine(starName + " " + i + " is a dwarf planet with " + dwarfMoons + " moons.");
+                        break;
+                    case 4:
+                        Console.WriteLine(starName + " has an asteroid belt at orbital position " + i + ".");
+                        break;
+                }    
+            }
+            Console.WriteLine();
+            
+
+            // To-Do:
+            // Compare Middle syllables to make sure they're not re-used
+            // Implement opening syllables and ending syllables
+            // Randomly select class
+
+            // Console.WriteLine(starName + " is a class " + starClass + " star.");
+
+            // Generate number of planets
+            // Name planets StarName+I-XV
+
+            // Console.WriteLine(starName + " has " + numPlanets + " planets with the following characteristics:");
+
+            // Assign each planet rocky or gas
+            // Generate number of moons per planet 1-4 rocky, 8-45 gaseous
+            // Add diameter and mass to planets?
+
         }
-
-
-
-
-
-
-
-        // To-Do:
-        // Compare Middle syllables to make sure they're not re-used
-        // Implement opening syllables and ending syllables
-        // Randomly select class
-
-        // Console.WriteLine(starName + " is a class " + starClass + " star.");
-
-        // Generate number of planets
-        // Name planets StarName+I-XV
-
-        // Console.WriteLine(starName + " has " + numPlanets + " planets with the following characteristics:");
-
-        // Assign each planet rocky or gas
-        // Generate number of moons per planet 1-4 rocky, 8-45 gaseous
-        // Assign 
-
     }
 }
